@@ -6,6 +6,33 @@
     <title>myform</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            background-color:#f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+        }
+        #myform{
+            background-color:darkorchid;
+            color: white;
+            position: relative;
+            align-content: center;
+            padding: 50px;
+            border-style: double;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .h1{
+            color: black;
+        }
+        .label{
+            color: lightskyblue;
+        }
+
+        
+    </style>
     <script>
         $(document).ready(function() {
     $("#myform").submit(function(event) {
@@ -40,6 +67,7 @@
             $(this).prop("checked", false);
         }
     });
+    
 });
 
     </script>
@@ -51,12 +79,12 @@
         <div class="container-fluid">
             <div class="jumbotron">
                 <h1>Registration form</h1>
-            <form id="myform" style="background-color: azure;;">
-            <label>Name</label>
+            <form id="myform">
+            <label>Name   </label>
             <input type="text" id="name" name="name"><br>
             <label>phone</label>
             <input type="text" id="phone" name="phone" ><br>
-            <label>email</label>
+            <label>email   </label>
             <input type="email" id="email" name="email" ><br>
             <label>gender</label>
             <input type="radio" id="male" name="gender"> Male
