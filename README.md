@@ -1,5 +1,5 @@
 # Assignments
-assignment 1 :A registration form using html,css,jquery
+assignment 1 :A registration form using html,css,jquery and validation for each field.
 scshots ![image](https://github.com/user-attachments/assets/46ca6352-422b-44b8-81c8-217ce62c97c9)
 
 assignment 2: a shopping cart,here i have done a laptop shopping cart with my own json data.
