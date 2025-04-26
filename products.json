@@ -1,0 +1,32 @@
+[
+    {
+      "id": "c1",
+      "name": "Lenovo ThinkPad E14 Gen 6",
+      "processor": "AMD Ryzen 7 7735U (2.70 GHz Up To 4.75 GHz)",
+      "storage": "512 GB SSD",
+      "ram": "16 GB",
+      "price": "₹109,331",
+      "seller": "Lenovo AU",
+      "image": "thinkpad-e14.jpg"
+    },
+    {
+      "id": "c2",
+      "name": "Lenovo IdeaPad Flex 5 Gen 7",
+      "processor": "AMD Ryzen 7 5700U (1.80 GHz Up To 4.30 GHz)",
+      "storage": "512 GB SSD",
+      "ram": "16 GB",
+      "price": "₹88,091",
+      "seller": "Lenovo AU",
+      "image": "ideapad-flex5.jpg"
+    },
+    {
+      "id": "c3",
+      "name": "Lenovo ThinkPad E16 Gen 2",
+      "processor": "AMD Ryzen 5 7535U (2.90 GHz Up To 4.55 GHz)",
+      "storage": "512 GB SSD",
+      "ram": "16 GB",
+      "price": "₹67,500",
+      "seller": "Lenovo AU",
+      "image": "thinkpad-e16.jpg"
+    }
+  ]

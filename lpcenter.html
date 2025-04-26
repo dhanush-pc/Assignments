@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MY LP CENTER</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#loadLaptops').click(function(e) {
+                    e.preventDefault();
+                    loadLaptops();
+                });
+            });
+            $(document).ready(function() {
+            $('.pager li a[href="#h1"]').click(function(e) {
+                e.preventDefault();
+                $('#h1').show();
+                $('#h2').hide();
+            });
+        
+            $('.pager li a[href="#h2"]').click(function(e) {
+                e.preventDefault();
+                $('#h1').hide();
+                $('#h2').show();
+            });
+        
+            $('#h1').show();
+            $('#h2').hide();
+        });
+            
+            function loadLaptops() {
+                $.getJSON('products.json', function(products) {
+                    let html = '';
+                    products.forEach(product => {
+                        html += `
+                            <div class="col-md-4">
+                                <div class="thumbnail product-card">
+                                    <img src="${product.image}" style="height: 200px; width: 100%; object-fit: contain;">
+                                    <div class="caption">
+                                        <h4>${product.name}</h4>
+                                        <p><strong>Processor:</strong> ${product.processor}</p>
+                                        <p><strong>Storage:</strong> ${product.storage}</p>
+                                        <p><strong>RAM:</strong> ${product.ram}</p>
+                                        <p><strong>Price:</strong> ${product.price}</p>
+                                        <p><strong>Seller:</strong> ${product.seller}</p>
+                                        <button class="btn btn-primary">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $('#products-container').html(html);
+                    $('html, body').animate({
+                        scrollTop: $("#products-container").offset().top
+                    }, 500);
+                });
+                
+            }
+            </script>
+            
+    </head>
+    <body style="background-color:aliceblue;">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:white;">
+            <ul class="nav nav-pills nav-danger">
+                <li class="nav-item"><a class="nav-item active" href="#" style="background-color:blueviolet;color: rgb(255, 255, 255);">Home</li></a>
+                <li class="nav-item"><a data-toggle="collapse" data-target="#about">About us</button> </li></a>
+                <li class="nav-item"><a data-toggle="collapse" data-target="#contact">Contact us</button> </li></a>
+                <li class="nav-item"><a href="#lpsection" id="loadLaptops">Browse Laptops</a></li>    
+                <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                            Catalog <span class="caret"></span></a>
+                        
+                    <ul class="dropdown-menu">
+                            <div class="alert alert-success">These products are yet to be added you can get the info below</div>
+                            <li><a href="#c1" data-toggle="collapse" >Lenovo ThinkPad E14 Gen 6</a></li>
+                            <li><a href="#c2" data-toggle="collapse" >Lenovo IdeaPad Flex 5 Gen 7</a></li>
+                            <li><a href="#c3" data-toggle="collapse" >Lenovo ThinkPad E16 Gen 2</a></li>
+                            <li><a href="#c4" data-toggle="collapse" >Lenovo IdeaPad Slim 5 Gen 10 (14-inch)</a></li>
+                            <li><a href="#c5" data-toggle="collapse">Lenovo IdeaPad Slim 5 Gen 10 (16-inch)</a></li>
+                            <li><a href="#c6" data-toggle="collapse">Motorola Motobook 60</a>
+                            </ul>
+                </li>
+                <H1 style=" font-size: 50px; font-weight: bold; color: #7d0fde;margin-top:0; text-align: center;margin-right: 200px;">THE LEP CENTER</H1>
+                <ul class="breadcrumbs well" style=" position: absolute; top:0px ; right:20px;">
+                    <a href=" ">Login</a>
+                    /
+                    <a href=" ">Signup</a>
+                </ul>            
+            </ul>
+        </nav>
+            
+        </div>
+        <div id="about" class="collapse">
+            <strong>This is about the lep centre</strong> </div>
+        <div id="contact" class="collapse">
+            <ul>
+                <li><span class="glyphicon glyphicon-search">www.lep.com</li>
+                <li><span class="glyphicon glyphicon-envelope">lep@workmail.com</li>
+            </ul>
+        </div>
+        
+        <div id="c1" class="collapse">
+            <ul>
+                <pre>
+                Processor: AMD Ryzen 7 7735U (2.70 GHz Up To 4.75 GHz)
+
+                Storage: 512 GB SSD
+
+                RAM: 16 GB
+
+                Price: ₹109,331
+
+                Seller: Lenovo AU
+            </pre>
+            </ul>
+        </div>
+        <div id="c2" class="collapse">
+            <pre>
+                Lenovo IdeaPad Flex 5 Gen 7
+
+                Processor: AMD Ryzen 7 5700U (1.80 GHz Up To 4.30 GHz)
+                
+                Storage: 512 GB SSD
+                
+                RAM: 16 GB
+                
+                Price: ₹88,091
+                
+                Seller: Lenovo AU
+            </pre>
+        </div>
+        <div id="c3" class="collapse"><pre>
+            Processor: AMD Ryzen 5 7535U (2.90 GHz Up To 4.55 GHz)
+
+            Storage: 512 GB SSD
+
+            RAM: 16 GB
+
+            Price: ₹67,500
+
+            Seller: Lenovo AU
+        </pre></div>
+        <div id="c4" class="collapse"><pre>
+            Lenovo IdeaPad Slim 5 Gen 10 (14-inch)
+
+            Processor: AMD Ryzen AI 5 340 (2.00 GHz Up To 4.80 GHz)
+
+            Storage: 512 GB SSD
+
+            RAM: 16 GB
+
+            Price: ₹79,701
+
+            Seller: Lenovo AU
+        </pre></div>
+        <div id="c5" class="collapse"><pre>
+            Processor: AMD Ryzen AI 5 340 (2.00 GHz Up To 4.80 GHz)
+
+            Storage: 512 GB SSD
+
+            RAM: 16 GB
+
+            Price: ₹77,200
+
+            Seller: Lenovo AU
+        </pre></div>
+        <div id="c6" class="collapse"><pre>
+            Processor: Intel Core 5 210H
+
+            Storage: 512 GB SSD
+
+            RAM: 16 GB
+
+            Price: ₹66,990
+        </pre></div>
+        
+        <div class="container-fluid">
+    <div class="jumbotron text-center" style="background-color: aqua;">
+        <h1>Welcome to my website</h1>
+        <p>your one-stop shop to find laptops </p>
+    </div>
+</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+  
+    <div class="carousel-inner">
+      <div class="item active media-center">
+        <img src="1.jpg" alt="Laptop" class="img-fluid" class="img-fluid" style="display: block; margin: auto; width: 500px; height: auto;">
+      </div>
+  
+      <div class="item media-center margin-top">
+        <img src="2.jpg" alt="laptop" class="img-fluid" class="img-fluid" style="display: block; margin: auto; width: 500px; height: auto;" >
+      </div>
+  
+      <div class="item media-center">
+        <img src="3.jpg" alt="New laptop" class="img-fluid" class="img-fluid" style="display: block; margin: auto; width: 500px; height: auto;">
+      </div>
+    </div>
+  
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <br>
+    <div class="container-fluid">
+        <div class="jumbotron text-center" style="background-color:aquamarine;">
+            <h1>History of laptops</h1>
+        
+        <div class="row" id="h1" style="display: block;">
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Dynabook Concept (1968)</mark></strong> – American computer scientist Alan Kay envisioned a portable computer called the Dynabook, designed for children. Though it was never built, it influenced future laptop designs</div>
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Osborne 1 (1981)</mark></strong> – The Osborne 1 was the first commercially available portable computer. It had a 5-inch screen, weighed 24 pounds, and cost $1,795</div>
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Grid Compass (1982)</mark></strong> – Designed by William Moggridge, the Grid Compass was one of the first clamshell-style laptops. It was used by NASA in space missions</div>
+        </div>
+        <div class="row" id="h2" style="display: block;">
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Grid Compass (1982)</mark></strong>IBM 5155 Portable PC (1984) – IBM released its first portable computer, the IBM 5155, which was bulky but introduced portability to business computing</div>
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Compaq LTE (1989)</mark></strong> – The Compaq LTE was one of the first true notebook-style laptops, featuring a built-in hard drive and a compact design</div>
+            <div class="col-sm-4" style="border-right: 2px solid black; padding: 10px;"><strong><mark>Apple PowerBook (1991)</mark></strong> – Apple revolutionized laptop design with the PowerBook, introducing a trackball and ergonomic keyboard layout, setting the standard for modern laptops</div>
+        </div> 
+        <ul class="pager">
+            <li><a href="#h1">previous</a></li>
+            <li><a href="#h2">next</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="jumbotron" id="lpsection">
+    <div class="container" id="products-container">
+
+    </div>
+</div>
+    </body>
+</html>

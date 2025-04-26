@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myform</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    $("#myform").submit(function(event) {
+        var name = $("#name").val();
+        if(name.length <= 0) {
+            alert("Enter your name");
+            event.preventDefault();
+        } else if(name.length > 20) {
+            alert("Your name is too long");
+            event.preventDefault();
+        }
+
+        var phone = $("#phone").val();
+        var regex = /^[1-9]{9}\d$/;
+        if (!regex.test(phone)) {
+            alert("Enter a valid phone number [0-9]");
+            event.preventDefault();
+        }
+    });
+
+    $("#cpadd").click(function(event) {
+        event.preventDefault();
+
+        var cadd = $("#caddress").val();
+        $("#paddress").val(cadd); 
+    });
+
+    $("input[type='checkbox']").change(function() {
+        var checkedCount = $("input[type='checkbox']:checked").length;
+        if(checkedCount > 2) {
+            alert("Select only 2 options!");
+            $(this).prop("checked", false);
+        }
+    });
+});
+
+    </script>
+
+
+</head>
+<body>
+        
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <h1>Registration form</h1>
+            <form id="myform" style="background-color: azure;;">
+            <label>Name</label>
+            <input type="text" id="name" name="name"><br>
+            <label>phone</label>
+            <input type="text" id="phone" name="phone" ><br>
+            <label>email</label>
+            <input type="email" id="email" name="email" ><br>
+            <label>gender</label>
+            <input type="radio" id="male" name="gender"> Male
+            <input type="radio" id="female" name="gender"> Female<br>
+            <label>Current address</label>
+            <textarea id="caddress" rows="4" cols="50" placeholder="enter your current adress"></textarea><br>
+            <p>IF YOUR CURRENT ADDRESS IS SAME AS PERMENTANT <button id="cpadd">click here</button><br></p>
+            <label>Permenant address</label>
+            <textarea id="paddress" rows="4" cols="50" placeholder="enter your permanant adress"></textarea><br>
+            <label>Preferred location<small>choose any 2</small></label>
+            <input type="checkbox" id="c1" name="check">Bangalore<br>
+            <input type="checkbox" id="c2" name="check">Chennai<br>
+            <input type="checkbox" id="c3" name="check">Delhi<br>
+            <input type="checkbox" id="c4" name="check">Mumbai<br>
+            <input type="checkbox" id="c5" name="check">Pune<br><BR>
+            <button type="submit" id="submit">SUBMIT</button>
+        </form>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</div> 
+</div>
+
+</body>
+</html>
