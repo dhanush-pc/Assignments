@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Calculator</title>
+    <script>
+       $(document).ready(function () {
+        let expression = "";
+        $("button").click(function () {
+        let value = $(this).text();
+        if (value === "=") {
+            try {
+                expression = eval(expression);
+                $("#val1").val(expression);
+            } catch (error) {
+                $("#val1").val("Error");
+            }
+        } else if (value === "clear") {
+            expression = "";
+            $("#val1").val("");
+        }
+        else if (value === "back") {
+            expression = expression.slice(0, -1);
+            $("#val1").val(expression);
+        }
+        else{
+            expression += value;
+            $("#val1").val(expression);
+        }
+        });
+
+        $("form").submit(function (event) {
+        event.preventDefault();
+        });
+   });
+    </script>
+</head>
+<body style="width: 80;">
+    <form id="form">
+    <h1>CALCULATOR</h1><br><br>
+    <div class="bg-light p-4 rounded">
+    <div class="table table-stripped">
+   <input type="text" id="val1" style="width: 145px ;"><br><br>
+   <div class="btn-group-justified">
+    <button class="btn btn-primary" id="one">1</button>
+    <button class="btn btn-primary" id="two">2 </button>
+    <button class="btn btn-primary" id="three">3 </button>
+    <button class="btn btn-primary" id="four">4</button><br>
+</div>
+<div class="btn-group-justified">
+    
+    <button class="btn btn-primary" id="five">5 </button>
+    <button class="btn btn-primary" id="six">6 </button>
+    <button class="btn btn-primary" id="seven">7</button>
+    <button class="btn btn-primary" id="eight">8 </button>
+</div>
+<div class="btn-group-justified">
+
+    <button class="btn btn-primary" id="nine">9</button>
+    <button class="btn btn-primary" id="zero">0</button>
+    <button class="btn btn-primary" id="plus">+</button>
+    <button class="btn btn-primary" id="minus">- </button>
+</div>
+    <div class="btn-group-justified">
+    <button class="btn btn-primary" id="mul">* </button>
+    <button class="btn btn-primary" id="div">/</button>
+    <button class="btn btn-primary" id="mod">%</button>
+    <button class="btn btn-primary" id="eq">=</button><br>
+</div>
+    <button class="btn btn-danger btn-sm" id="clear" style="padding-right: 35px;">clear</button>
+    <button class="btn btn-warning btn-sm" id="back" style="padding-right: 35px; text-align: center;">back</button>
+</table>
+</form>
+</body>
+</html>
